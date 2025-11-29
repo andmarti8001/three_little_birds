@@ -355,6 +355,13 @@ def on_press(key):
     if ch in KEYMAP:
         inst = KEYMAP[ch]
         start_note(inst)
+    
+    if ch == "r":
+        print("r pressed, RESTART")
+        Snowman.index = 0
+        Elf.index = 0
+        Santa.index = 0
+        Reindeer.index = 0
 
 def on_release(key):
     try:
@@ -375,7 +382,8 @@ def main():
     print("  J = Tyrone Downie (harmony)")
     print("  ; = Bob Marley (melody)")
     print("Hold any combo (A/F/J/;) to play multiple at once.")
-    print("ESC = Quit\n")
+    print("R = restart")
+    print("ESC = Quit\n\n")
 
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
